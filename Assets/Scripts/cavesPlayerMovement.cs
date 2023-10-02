@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 
-public float walkingspeed;
-public float xdir;
-public float xvector;
-//public class NewBehaviourScript : MonoBehaviour
+
+public class NewBehaviourScript : MonoBehaviour
 {
+    
+    public float walkingSpeed ;
+    public float Xdir ;
+    public float Xvector ;
+    
     // Start is called before the first frame update
     void Start()
-    {
-   //    walkingspeed = 5f;
+    { 
+        walkingSpeed = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-      //  Xdir = Input.GetAxis("Horizontal");
-       // xvector = xdir * walkingspeed*Time.deltaTime;
-       // transform.positon = transform.positon + newvector3(xvector, 0, 0);
+        Xdir = Input.GetAxis("Horizontal");
+        Xvector = Xdir * walkingSpeed*Time.deltaTime;
+        transform.position = transform.position + new Vector3(Xvector,0,0);
     }
 }
