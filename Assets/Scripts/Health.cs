@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class heath : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public int health;
     // Start is called before the first frame update
@@ -20,10 +20,10 @@ public class heath : MonoBehaviour
 
      void OnCollisionEnter2D(Collision2D other)
     {
-        if ()
-        {
+        
+        
             ChangeHeath(-1);
-        }
+        
     }
 
      void ChangeHeath(int -1)
@@ -39,7 +39,7 @@ public class heath : MonoBehaviour
 
      void death()
      {
-         GameObject = (0, -2.46, -2.393815);
+         this.gameObject = (0, -2.46, -2.393815);
          health = 5; 
      }
 }

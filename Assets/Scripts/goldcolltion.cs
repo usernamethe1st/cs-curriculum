@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class goldcolltion : MonoBehaviour
+public class Goldcolltion : MonoBehaviour
 {
     private int gold;
-    
+    public int amant;
 
     // Start is called before the first frame update
     void Start()
@@ -16,21 +16,19 @@ public class goldcolltion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        goldText.text=("Gold "gold);
-        Debug.log("points +"points);
+        GoldText.text=("Gold "gold);
+        Debug.Log("points +points");
     }
 
     void OntiggerEnter2D(Collider2D other)
     {
-        if()
-        {
             CollentCoin(1);
-        }
+        
     }
 
     void CollentCoin(int amant)
     {
         gold =gold + amant;
-        other.gameObject.SetActive(false);
+        other.GameObject.SetActive(false);
     }
 }
