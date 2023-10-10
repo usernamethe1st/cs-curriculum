@@ -31,9 +31,10 @@ public class Playermove : MonoBehaviour
     {
         xdir = Input.GetAxis("Horizontal");
         xvector = xdir * xspeed*Time.deltaTime;
-        transform.position = transform.position + new Vector3(xvector,0,0);
+        
         
         ydir = Input.GetAxis("Vertical");
         yvector = ydir * yspeed*Time.deltaTime;
+        transform.position = transform.position + new Vector3(xvector,yvector,0);
     }
 }
