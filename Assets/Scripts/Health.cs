@@ -65,7 +65,7 @@ public class Health : MonoBehaviour
         
         if (other.gameObject.CompareTag("Potion"))
         { 
-            ChangeHeath(5);
+            ChangeHeath(1);
             other.gameObject.SetActive(false);
         }
 
