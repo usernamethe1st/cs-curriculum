@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Hud : MonoBehaviour
+public class HUD : MonoBehaviour
 {
+    public int health;
+    public int gold;
+    public static HUD hud;
     public Goldcolltion purse;
     public Health life;
     public TextMeshProUGUI goldText;
@@ -15,9 +18,21 @@ public class Hud : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        goldText.text = "gold=" + purse.gold;
-        healthText.text = "health=" + life.health;
+        goldText.text = "gold =" + gold.ToString();
+        healthText.text = "health =" + health.ToString();
     }
 
+    void awake()
+    {
+        if(hud != null && hud != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            hud = this;
+            DontDestroyOnLoad(this);
+        }
+    }
 
 }

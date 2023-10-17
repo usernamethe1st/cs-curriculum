@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Goldcolltion : MonoBehaviour
 {
-    public int gold;
-
+  //  public int gold;
+  public HUD hud;
     // Start is called before the first frame update
     void Start()
     {
-
+        hud = GameObject.FindObjectOfType<HUD>();
     }
 
     // Update is called once per frame
@@ -22,17 +22,18 @@ public class Goldcolltion : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
   
+     
         if (other.gameObject.CompareTag(("Coin")))
         {
             CollentCoin(1);
             other.gameObject.SetActive(false);
-            Debug.Log("Gold: " +gold);
+            Debug.Log("Gold: " +hud.gold);
         }
     }
 
     void CollentCoin(int amount)
     {
-        gold =gold + amount;
-        
+        hud.gold =hud.gold + amount;
+        hud.gold++;
     }
 }

@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
+    public HUD hud;
+    //public int health;
     public bool iframe;
     public float iframes;
     private Vector3 originalPosition;
@@ -14,7 +15,8 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
+        hud = GameObject.FindObjectOfType<HUD>();
+        hud.health = 5;
         iframes = 1.5f;
         iframe = false;
         originalPosition = transform.position;
@@ -73,18 +75,18 @@ public class Health : MonoBehaviour
 
       void ChangeHeath(int amount)
      {
-         health  = health + amount;
-        if (health < 1)
+         hud.health  = hud.health + amount;
+        if (hud.health < 1)
         {
             Death();
 
         }
-         
+        hud.gold++;
      }
 
     void Death()
     {
         transform.position = originalPosition;
-         health = 5; 
+         hud.health = 5; 
      }
 }
