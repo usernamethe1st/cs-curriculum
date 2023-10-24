@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public bool iframe;
     public float iframes;
     private Vector3 originalPosition;
+
     
     // Start is called before the first frame update
     void Start()
@@ -81,12 +82,13 @@ public class Health : MonoBehaviour
             Death();
 
         }
-        hud.gold++;
+        hud.health++;
      }
 
     void Death()
     {
         transform.position = originalPosition;
          hud.health = 5; 
+         
      }
 }
