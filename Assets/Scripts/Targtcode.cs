@@ -14,14 +14,14 @@ public class Targtcode : MonoBehaviour
     public float iframes;
     public Transform target;
     public Rigidbody2D rd ;
-
+   
     public float rotateSpeed = 200f;
     // Start is called before the first frame update
     void Start()
     {
-        iframes = 1000;
+        iframes = 10;
         iframe = false;
-       
+        
     }
 
      //Update is called once per frame
@@ -32,29 +32,26 @@ public class Targtcode : MonoBehaviour
         }
         if (iframes < 0)
         {
-            iframes = 1000;
+            iframes = 10;
             iframe = false;
         }
-        if (iframe == true)
+        if (iframe)
         {
-            Instantiate(Fireball);
+            if (iframes > 9.995)
+            {
+                Instantiate(Fireball,transform.position,transform.rotation);
+            }
 
-            Vector2 direction = (Vector2)target.position - rd.position;
+            
 
-            direction.Normalize();
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
-            rd.angularVelocity = -rotateAmount * rotateSpeed;
-            rd.GetComponent<Rigidbody2D>();
 
-            rd.velocity = transform.up * luck;
         }
         if (iframe == false)
         {
             
           Destroy(Fireball);
         }
-        
-   }
+    }
 
 
 

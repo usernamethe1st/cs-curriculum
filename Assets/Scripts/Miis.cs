@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody2D))]
 public class Miis : MonoBehaviour
-{
-    //public GameObject explosioneffect;
+{ 
+    public GameObject Fireball;
+    public bool iframe;
+    public float iframes;
     public float luck = 10f;
 
 
@@ -14,31 +17,52 @@ public class Miis : MonoBehaviour
     public float rotateSpeed = 200f;
 
     // Start is called before the first frame update
-    //void Start()
-    //{
-      // target = .gameObject.CompareTag("Player")Transform;
-    //}
+    void Start ()
+    {
+        iframes = 10;
+        iframe = true;
+
+        rd = GetComponent<Rigidbody2D>();
+       target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (iframe)
+        {
+            iframes = iframes - Time.deltaTime;
+        }
+        if (iframes < 0)
+        {
+            iframes = 10;
+            iframe = false;
+        }
+  
+        if (iframe == false)
+        {
+            
+            Destroy(Fireball);
+        }
         Vector2 direction = (Vector2)target.position - rd.position;
 
         direction.Normalize();
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
         rd.angularVelocity = -rotateAmount * rotateSpeed;
-       // rd.GetComponent<Rigidbody2D>();
+       
 
-       // rd.velocity = transform.up * luck;
+        rd.velocity = transform.up * luck;
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+  
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-         //   Instantiate(explosioneffect,transform.position,transform.rotation);
+            
+            gameObject.SetActive(false);
         }
-        Destroy(gameObject);
+       
     }
 }

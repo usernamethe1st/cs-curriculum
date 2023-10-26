@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
                 ChangeHeath(-3);
                 iframe = true;
                 other.gameObject.SetActive(false);
-                
+
             }
         }
         
@@ -82,7 +82,7 @@ public class Health : MonoBehaviour
             Death();
 
         }
-        hud.health++;
+        
      }
 
     void Death()

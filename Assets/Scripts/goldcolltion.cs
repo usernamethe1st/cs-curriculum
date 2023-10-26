@@ -33,7 +33,7 @@ public class Goldcolltion : MonoBehaviour
 
     void CollentCoin(int amount)
     {
-        hud.gold =hud.gold + amount;
+        hud.gold = hud.gold + amount;
         hud.gold++;
     }
 }
