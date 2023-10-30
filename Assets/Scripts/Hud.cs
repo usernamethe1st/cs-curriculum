@@ -6,6 +6,7 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
+
     public int health;
     public int gold;
     public static HUD hud;
@@ -13,18 +14,22 @@ public class HUD : MonoBehaviour
     public Health life;
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI healthText;
+    public GameObject Player;
     // Start is called before the first frame update
 
     // Update is called once per frame
+
+
     void Update()
     {
         goldText.text = "gold =" + gold.ToString();
         healthText.text = "health =" + health.ToString();
+
     }
 
-    void awake()
+    void Awake()
     {
-        if(hud != null && hud != this)
+        if (hud != null && hud != this)
         {
             Destroy(this);
         }
@@ -32,7 +37,7 @@ public class HUD : MonoBehaviour
         {
             hud = this;
             DontDestroyOnLoad(this);
+
         }
     }
-
 }

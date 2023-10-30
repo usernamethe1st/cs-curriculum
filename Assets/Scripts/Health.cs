@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         hud = GameObject.FindObjectOfType<HUD>();
-        hud.health = 5;
+        hud.health = 10;
         iframes = 1.5f;
         iframe = false;
         originalPosition = transform.position;
@@ -49,7 +49,7 @@ public class Health : MonoBehaviour
         { 
             if (iframe == false)
             {
-                ChangeHeath(-1);
+                ChangeHeath(-2);
                 iframe = true;
                 
             }
@@ -62,13 +62,18 @@ public class Health : MonoBehaviour
                 ChangeHeath(-3);
                 iframe = true;
                 other.gameObject.SetActive(false);
+                if (hud.health <= 3)
+                {
+                    Death();
+
+                }
 
             }
         }
         
         if (other.gameObject.CompareTag("Potion"))
         { 
-            ChangeHeath(1);
+            ChangeHeath(2);
             other.gameObject.SetActive(false);
         }
 
@@ -88,7 +93,7 @@ public class Health : MonoBehaviour
     void Death()
     {
         transform.position = originalPosition;
-         hud.health = 5; 
+         hud.health = 10; 
          
      }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Targtcode : MonoBehaviour
 {
     
-   
+    public HUD hud;
     public float luck = 10f;
     public GameObject Fireball;
     public bool iframe;
@@ -16,10 +16,10 @@ public class Targtcode : MonoBehaviour
     public Rigidbody2D rd ;
    
     public float rotateSpeed = 200f;
-    // Start is called before the first frame update
+    // Start is called before the first frame update  
     void Start()
     {
-        iframes = 10;
+        iframes = 1;
         iframe = false;
         
     }
@@ -32,24 +32,15 @@ public class Targtcode : MonoBehaviour
         }
         if (iframes < 0)
         {
-            iframes = 10;
+            Instantiate(Fireball,transform.position,transform.rotation);
+            iframes = 1;
             iframe = false;
         }
-        if (iframe)
-        {
-            if (iframes > 9.995)
-            {
-                Instantiate(Fireball,transform.position,transform.rotation);
-            }
 
-            
-
-
-        }
         if (iframe == false)
         {
             
-          Destroy(Fireball);
+          
         }
     }
 
