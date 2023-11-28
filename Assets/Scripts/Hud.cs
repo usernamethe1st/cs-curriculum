@@ -25,6 +25,7 @@ public class HUD : MonoBehaviour
         goldText.text = "gold =" + gold.ToString();
         healthText.text = "health =" + health.ToString();
 
+
     }
 
     void Awake()
@@ -40,4 +41,5 @@ public class HUD : MonoBehaviour
 
         }
     }
+    
 }

@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
                 ChangeHeath(-3);
                 iframe = true;
                 other.gameObject.SetActive(false);
-                if (hud.health <= 3)
+                if (hud.health <= 3) 
                 {
                     Death();
 

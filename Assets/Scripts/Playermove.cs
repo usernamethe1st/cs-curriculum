@@ -36,5 +36,6 @@ public class Playermove : MonoBehaviour
         ydir = Input.GetAxis("Vertical");
         yvector = ydir * yspeed*Time.deltaTime;
         transform.position = transform.position + new Vector3(xvector,yvector,0);
+        
     }
 }
