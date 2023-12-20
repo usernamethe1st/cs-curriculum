@@ -62,7 +62,7 @@ public class Goldcolltion : MonoBehaviour
         
         //nodus
         if (other.gameObject.CompareTag("Bow"))
-        {
+       {
             Destroy(Bow);
             mose = true;
         }
