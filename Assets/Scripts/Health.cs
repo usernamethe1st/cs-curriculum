@@ -26,6 +26,12 @@ public class Health : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+        if (hud.health < 1)
+        {
+            Death();
+
+        }
+
         if (iframe == true)
         {
             iframes = iframes - Time.deltaTime;

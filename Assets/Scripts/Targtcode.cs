@@ -16,6 +16,8 @@ public class Targtcode : MonoBehaviour
     public Rigidbody2D rd ;
    
     public float rotateSpeed = 200f;
+    
+
     // Start is called before the first frame update  
     void Start()
     {
@@ -36,6 +38,7 @@ public class Targtcode : MonoBehaviour
             iframes = 1;
             iframe = false;
         }
+
 
         if (iframe == false)
         {

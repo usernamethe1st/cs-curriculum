@@ -12,6 +12,7 @@ TagManager:
   - Fireball
   - Arrow
   - Arrows
+  - Bow
   layers:
   - Default
   - TransparentFX

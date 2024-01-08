@@ -6,15 +6,17 @@ public class Goldcolltion : MonoBehaviour
 {
     public float ll;
     public GameObject Arrows;
-    public bool mose;
+    public bool mose ;
     public bool mm;
-
+    public Transform target;
+    public GameObject Bow;
   //  public int gold;
   public HUD hud;
     // Start is called before the first frame update
     void Start()
     {
-        ll = 15;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        ll = 5;
         hud = GameObject.FindObjectOfType<HUD>();
         //nodus
         mose = false;
@@ -31,20 +33,19 @@ public class Goldcolltion : MonoBehaviour
             ll = ll - Time.deltaTime;
             if (ll <= 0)
             {
-                ll = 15;
+                ll = 5;
+                mm = true;
             }
         }
-        if (ll <= 15)
-        {
-            mm = true;
-        }
+
 
         if (mose == true && mm == true)
         {
             if (Input.GetKey(KeyCode.M))
             {
-                Instantiate(Arrows, transform.position, transform.rotation);
+                Instantiate(Arrows, target.position, target.rotation);
                 mm = false;
+                Debug.Log("0 key is pressed.");
             }
         }
     }
@@ -63,7 +64,9 @@ public class Goldcolltion : MonoBehaviour
         //nodus
         if (other.gameObject.CompareTag("Bow"))
        {
+           Debug.Log("0 key is pressed.");
             Destroy(Bow);
+            other.gameObject.SetActive(false);
             mose = true;
         }
         //ds

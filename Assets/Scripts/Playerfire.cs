@@ -7,11 +7,12 @@ public class Playerfire : MonoBehaviour
 {
     public float kk;
     public float nn = 0f;
-    
+    public GameObject Arrows;
     public float iframes = 1f;
-    public float luck = 1f;
+    public float luck = 5f;
     public float rotateSpeed = 0f;
 
+    
     public Vector2 aaaaa;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,9 @@ public class Playerfire : MonoBehaviour
         kk = kk - Time.deltaTime;
         if (kk <= 0)
         {
-            Destroy(Arrows);
+            kk = 1234212314;
+            luck = 5f;
+
 
         }
             
