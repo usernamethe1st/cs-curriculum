@@ -7,6 +7,8 @@ using TMPro;
 public class HUD : MonoBehaviour
 {
 
+    public bool shell;
+    public int luck;
     public int health;
     public int gold;
     public static HUD hud;

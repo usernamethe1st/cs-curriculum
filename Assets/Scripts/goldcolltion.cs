@@ -6,6 +6,8 @@ public class Goldcolltion : MonoBehaviour
 {
     public float ll;
     public GameObject Arrows;
+    //public GameObject prefab;
+   
     public bool mose ;
     public bool mm;
     public Transform target;
@@ -27,6 +29,7 @@ public class Goldcolltion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         //GoldText.text=("Gold "gold);
         if (mm == false)
         {
@@ -41,8 +44,9 @@ public class Goldcolltion : MonoBehaviour
 
         if (mose == true && mm == true)
         {
-            if (Input.GetKey(KeyCode.M))
+            if (Input.GetKey(KeyCode.D))
             {
+                hud.luck = 0;
                 Instantiate(Arrows, target.position, target.rotation);
                 mm = false;
                 Debug.Log("0 key is pressed.");
