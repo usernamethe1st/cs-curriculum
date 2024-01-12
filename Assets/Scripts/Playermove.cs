@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Playermove : MonoBehaviour
 {  
-    public HUD hud;
+  
 
     public float xspeed;
     public float xdir;
@@ -16,8 +16,7 @@ public class Playermove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hud = GameObject.FindObjectOfType<HUD>();
-
+ 
         xspeed = 5f;
         if (overworld)
         {
@@ -33,8 +32,7 @@ public class Playermove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HUD.shell)
-        {
+        
             xdir = Input.GetAxis("Horizontal");
             xvector = xdir * xspeed * Time.deltaTime;
 
@@ -42,6 +40,6 @@ public class Playermove : MonoBehaviour
             ydir = Input.GetAxis("Vertical");
             yvector = ydir * yspeed * Time.deltaTime;
             transform.position = transform.position + new Vector3(xvector, yvector, 0);
-        }
+        
     }
 }

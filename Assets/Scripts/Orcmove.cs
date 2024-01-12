@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Orcmove : MonoBehaviour
@@ -27,7 +28,7 @@ public class Orcmove : MonoBehaviour
         hud = GameObject.FindObjectOfType<HUD>();
         hud.health = hud.health;
         iframes = 5;
-        iframe = true;
+        iframe = false;
 
         rd = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -45,6 +46,11 @@ public class Orcmove : MonoBehaviour
         if (iframes < 0)
         {
             iframes = 5;
+            iframe = false;
+        }
+        if (iframes == 5)
+        {
+            
             iframe = false;
         }
 
@@ -86,7 +92,7 @@ public class Orcmove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !iframe)
+        if (other.gameObject.CompareTag("Player") && !iframe && hud.shell == false)
         {
             ChangeHeath(-2);
             iframe = true;
@@ -98,7 +104,7 @@ public class Orcmove : MonoBehaviour
            
         }
     }
-  
+   
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

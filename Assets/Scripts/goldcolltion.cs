@@ -41,10 +41,19 @@ public class Goldcolltion : MonoBehaviour
             }
         }
 
+        if (mm == true)
+        {
+
+            if (Input.GetKey(KeyCode.G))
+            {
+                hud.shell = true;
+
+            }
+        }
 
         if (mose == true && mm == true)
         {
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.H))
             {
                 hud.luck = 0;
                 Instantiate(Arrows, target.position, target.rotation);

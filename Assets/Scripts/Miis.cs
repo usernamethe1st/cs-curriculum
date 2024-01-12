@@ -63,7 +63,7 @@ public class Miis : MonoBehaviour
 
    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && hud.shell == false)
         {
             ChangeHeath(-3);
             Destroy(Fireball);
