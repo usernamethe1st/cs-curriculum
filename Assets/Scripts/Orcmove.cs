@@ -103,6 +103,11 @@ public class Orcmove : MonoBehaviour
             Changeeheath(-2);
            
         }
+
+        if (other.gameObject.CompareTag("axe") && !iframe)
+        {
+            Changeeheath(-2);
+        }
     }
    
     void OnTriggerExit2D(Collider2D other)

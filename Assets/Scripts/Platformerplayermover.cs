@@ -17,13 +17,13 @@ public class Platformerplayermover : MonoBehaviour
     
     public Rigidbody2D rd;
     
-    public float jumpfores = 5;
+    public float jumpfores = 7;
    
-    public float iframe = 1;
+    public float iframe = 2;
     
-    private bool inair = false;
-    private bool sec = false;
-    
+    public bool inair = false;
+    public bool sec = false;
+
 
     public Vector3 originarotate;
     // Start is called before the first frame update
@@ -61,6 +61,7 @@ public class Platformerplayermover : MonoBehaviour
         if (sec)
         {
             transform.Translate(Vector3.up * jumpfores * Time.deltaTime);
+            Debug.Log("jumping");
             //  transform.Translate(Vector3.right * jumpfors * Time.deltaTime);
             //transform.Translate(Vector3.right + jumpfores + Time.deltaTime);
             //transform.Translate(Vector3.left * jumpfores * Time.deltaTime);
@@ -77,6 +78,7 @@ public class Platformerplayermover : MonoBehaviour
         {
             sec = false;
             inair = false;
+            iframe = 3;
         }
 
         
@@ -89,10 +91,11 @@ public class Platformerplayermover : MonoBehaviour
         transform.position = transform.position + new Vector3(xvector, yvector, 0);
         
     }
-    void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Square"))
         {
+            
            inair = false;
           sec = false;
 

@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour
 
     public bool shell;
     public int luck;
+    public int puck;
     public int health;
     public int gold;
     public static HUD hud;
@@ -41,6 +42,8 @@ public class HUD : MonoBehaviour
             hud = this;
             DontDestroyOnLoad(this);
 
+            
+            //Destroy(gameObject);
         }
     }
     

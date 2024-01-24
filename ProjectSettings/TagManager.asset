@@ -13,6 +13,7 @@ TagManager:
   - Arrow
   - Arrows
   - Bow
+  - Square
   layers:
   - Default
   - TransparentFX
